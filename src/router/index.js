@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import Category from '@/views/category'
+import categorylist from '@/views/categorylist'
+// import { component } from 'vue/types/umd'
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,7 +19,18 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path:'/category',
+    name:'category',
+    component:Category
+  },
+  {
+    path:'/categorylist/:id',
+    name:'categorylist',
+    component:categorylist,
+    props:true
+  },
 ]
 
 const router = new VueRouter({
